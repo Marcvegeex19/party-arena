@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#141d34">
+    <title>Party Arena — carreras y minijuegos</title>
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <main id="ui">
+      <header class="top-hud">
+        <div class="brand"><span class="brand-mark">✦</span><span>PARTY <b>ARENA</b></span></div>
+        <div class="round-info">
+          <span id="round-name">SALA DE ESPERA</span>
+          <strong id="timer">—</strong>
+        </div>
+        <button id="scores-toggle" class="icon-button" title="Ver puntuaciones (Tab)">☷ <span>Tabla</span></button>
+      </header>
+
+      <section id="join-card" class="card join-card">
+        <div class="eyebrow">JUEGA CON AMIGOS</div>
+        <h1>¡A la arena!</h1>
+        <p>Entra a una sala y compite en tres rondas rápidas.</p>
+        <form id="join-form">
+          <label>Tu nombre<input id="name-input" maxlength="16" placeholder="Jugador" autocomplete="nickname" required></label>
+          <label>Código de sala<input id="room-input" maxlength="12" value="LOBBY" autocomplete="off"></label>
+          <button class="primary" type="submit">Entrar a la sala <span>→</span></button>
+        </form>
+        <div class="join-note">Comparte el mismo código con tus amigos.</div>
+      </section>
+
+      <section id="lobby-card" class="card lobby-card hidden">
+        <div class="eyebrow">SALA <b id="room-label">LOBBY</b></div>
+        <h1 id="lobby-title">Esperando jugadores…</h1>
+        <p id="lobby-copy">¡Invita a alguien para empezar!</p>
+        <div class="lobby-actions">
+          <button id="start-button" class="primary hidden">Empezar ronda <span>→</span></button>
+          <button id="copy-room" class="secondary">Copiar código</button>
+        </div>
+        <div class="controls-note"><kbd>W A S D</kbd> moverse <kbd>Espacio</kbd> saltar <kbd>Ratón</kbd> mirar</div>
+      </section>
+
+      <div id="toast" class="toast"></div>
+      <section id="scoreboard" class="card scoreboard hidden">
+        <div class="eyebrow">PUNTUACIONES <span>(TAB)</span></div>
+        <div id="score-list"></div>
+      </section>
+      <section id="podium-card" class="card podium-card hidden">
+        <div class="eyebrow">FIN DE LA FIESTA</div>
+        <h1>¡Buen juego!</h1>
+        <div id="podium-list"></div>
+        <button id="restart-button" class="primary hidden">Jugar otra vez <span>↻</span></button>
+      </section>
+      <footer class="help"><span>WASD mover</span><span>ESPACIO saltar</span><span>arrastra para mirar</span></footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
